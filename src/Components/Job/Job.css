@@ -1,0 +1,20 @@
+.img-size{
+    width: 150px;
+    height: 50px;
+    margin-bottom: 20px;
+
+}
+
+.button-style{
+    border: 1px solid #7E90FE;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #7E90FE;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.button-style:hover{
+    color:white;
+    background-color: #7E90FE;
+}
