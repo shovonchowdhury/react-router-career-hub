@@ -4,19 +4,28 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { LuPhone } from "react-icons/lu";
 import { FiMail } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { storeJobById } from "../Utilities/localstorage";
 
 const JobDetails = () => {
 
     const jobs=useLoaderData();
     const {id}=useParams();
     const idInt=parseInt(id);
-    console.log(jobs);
+    // console.log(jobs);
 
     const job= jobs.find(job=> job.id === idInt);
 
     const {job_description,job_responsibility,educational_requirements,experiences,salary,job_title,contact_information}=job;
 
     const {phone,email,address}=contact_information;
+
+    const handleApplyNow=()=>{
+        
+        toast('Applied Successfully!!!');
+        storeJobById(id);
+    }
    
     return (
         <div>
@@ -76,7 +85,8 @@ const JobDetails = () => {
                         </div>
                     </div>
 
-                    <button className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF]  w-full mt-6 rounded-lg py-5 text-xl font-extrabold text-white">Apply Now</button>
+                    <button onClick={handleApplyNow} className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF]  w-full mt-6 rounded-lg py-5 text-xl font-extrabold text-white">Apply Now</button>
+                    <ToastContainer />
                 </div>
             </div>
         </div>

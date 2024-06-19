@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const Job = ({job}) => {
 
     const {id,logo,job_title,company_name,remote_or_onsite,location,job_type,salary,job_description}=job;
+    
     return (
         <div className='border-[#E8E8E8] border p-10 rounded-lg space-y-4'>
             <img src={logo} alt="" className='img-size' />
