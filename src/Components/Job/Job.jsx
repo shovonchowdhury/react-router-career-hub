@@ -3,10 +3,11 @@ import './Job.css'
 import { CiLocationOn } from "react-icons/ci";
 import { GrLocation } from "react-icons/gr";
 import { LuCircleDollarSign } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 const Job = ({job}) => {
 
-    const {logo,job_title,company_name,remote_or_onsite,location,job_type,salary,job_description}=job;
+    const {id,logo,job_title,company_name,remote_or_onsite,location,job_type,salary,job_description}=job;
     return (
         <div className='border-[#E8E8E8] border p-10 rounded-lg space-y-4'>
             <img src={logo} alt="" className='img-size' />
@@ -30,7 +31,11 @@ const Job = ({job}) => {
 
             </div>
 
-            <button className='bg-gradient-to-r from-[#7E90FE] to-[#9873FF] py-3 px-5 rounded text-[#FFF] text-xl font-extrabold'>View Details</button>
+            <div>
+                <Link to={`/job/${id}`}>
+                    <button className='bg-gradient-to-r from-[#7E90FE] to-[#9873FF] py-3 px-5 rounded text-[#FFF] text-xl font-extrabold'>View Details</button>
+                </Link>
+            </div>
         </div>
     );
 };
